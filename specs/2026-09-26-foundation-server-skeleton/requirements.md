@@ -12,6 +12,7 @@ In scope:
 - `src/` -> `dist/` build via `tsc` (`npm run build`)
 - `npm start`-able entry (`node dist/index.js`, default port 3000)
 - Strict TypeScript, CommonJS, ES2016 per existing `tsconfig.json`
+- Layout split: `src/views/header.ts`, `src/views/main.ts`, `src/views/footer.ts` as own files, composed by `src/views/layout.ts`
 
 Out of scope (deferred):
 - No DB/SQLite, no agents/ailments/therapies/appointments models (Phases 1-4)
@@ -22,6 +23,7 @@ Out of scope (deferred):
 
 - Framework: Express.js — popular, reliable, minimal (tech-stack.md recommendation).
 - Language: server-side TypeScript strict, following `src/` conventions.
+- Layout: header/main/footer in own files for course clarity + booth demo reuse; `layout.ts` only composes.
 - Transport: JSON over HTTP for `/healthz` + minimal HTML for `/`; full HTML dashboard comes in 0.2.
 - Port: 3000 default, overridable via `PORT` env for course/booth flexibility.
 

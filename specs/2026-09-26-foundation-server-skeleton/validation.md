@@ -8,7 +8,8 @@ Merge bar: Build + /healthz 200 + / home 200 (per user choice + home page additi
 - [ ] `npm run build` succeeds with zero TS errors, emits `dist/index.js`
 - [ ] `PORT=3000 node dist/index.js` boots without crash
 - [ ] `GET http://localhost:3000/healthz` returns 200 + `{ "status": "ok" }` JSON via curl
-- [ ] `GET http://localhost:3000/` returns 200 HTML containing AgentClinic via curl
+- [ ] `GET http://localhost:3000/` returns 200 HTML containing `<header>`, `<main>`, `<footer>` via layout subcomponents
+- [ ] Layout files exist: `src/views/header.ts`, `src/views/main.ts`, `src/views/footer.ts`, `src/views/layout.ts` imports all three
 - [ ] Same URLs load in current Chrome/Edge/Firefox/Safari showing JSON + home page (Steve: modern browser)
 - [ ] Unknown route returns 404 (reliability check, Mary)
 
