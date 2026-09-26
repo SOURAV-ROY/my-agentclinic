@@ -6,12 +6,13 @@ Merge bar: Build + `npm test` green + /healthz 200 + / home 200.
 
 - [ ] `npm install` succeeds on clean checkout (no extra services)
 - [ ] `npm run build` succeeds with zero TS errors, emits `dist/index.js` (+ `dist/app.js`, no test files)
-- [ ] `npm test` passes: `src/app.test.ts` + `src/views/layout.test.ts` via Vitest
+- [ ] `npm test` passes: `src/app.test.ts` + `src/views/layout.test.ts` + `src/home.test.ts` (incl. responsive viewport/media-query checks) via Vitest
 - [ ] `PORT=3000 node dist/index.js` boots without crash
 - [ ] `GET http://localhost:3000/healthz` returns 200 + `{ "status": "ok" }` JSON via curl
-- [ ] `GET http://localhost:3000/` returns 200 HTML containing `<header>`, `<main>`, `<footer>` via layout subcomponents
+- [ ] `GET http://localhost:3000/` returns 200 responsive HTML containing viewport meta + `<header>`, `<main>`, `<footer>` via layout subcomponents
+- [ ] `GET http://localhost:3000/styles.css` returns 200 CSS containing media query for responsive layout
 - [ ] Layout files exist: `src/views/header.ts`, `src/views/main.ts`, `src/views/footer.ts`, `src/views/layout.ts` imports all three
-- [ ] Same URLs load in current Chrome/Edge/Firefox/Safari showing JSON + home page (Steve: modern browser)
+- [ ] Same URLs load in current Chrome/Edge/Firefox/Safari narrow (360px) + wide (desktop) with no horizontal scroll showing JSON + responsive home page (Steve: modern browser + responsive)
 - [ ] Unknown route returns 404 (reliability check, Mary)
 
 ## Merge checklist
