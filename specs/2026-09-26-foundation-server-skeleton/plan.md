@@ -4,13 +4,13 @@ Structure: Setup -> Routes -> Home -> Build (per user choice + home page additio
 
 ## 1. Setup deps + config
 
-- 1.1 Add `express` dependency + `@types/express`, `@types/node` dev deps
-- 1.2 Ensure `package.json` scripts: `build: tsc`, `start: node dist/index.js`
-- 1.3 Verify `tsconfig.json` strict + `src/` -> `dist/` still holds
+- 1.1 Add `express` dependency + `@types/express`, `@types/node` dev deps; add `vitest`, `supertest`, `@types/supertest` dev deps for validation
+- 1.2 Ensure `package.json` scripts: `build: tsc`, `start: node dist/index.js`, `test: vitest run`
+- 1.3 Verify `tsconfig.json` strict + `src/` -> `dist/` still holds; exclude `**/*.test.ts` from build
 
 ## 2. App + /healthz route
 
-- 2.1 Replace `src/index.ts` placeholder with Express app (PORT env, default 3000)
+- 2.1 Create testable `src/app.ts` (Express app, no `listen`) + thin `src/index.ts` entry (PORT env, default 3000, `listen` only)
 - 2.2 Implement `GET /healthz` -> 200 `{ status: ok }` JSON
 - 2.3 Add minimal 404 + error handler for reliability (Mary)
 
@@ -23,5 +23,6 @@ Structure: Setup -> Routes -> Home -> Build (per user choice + home page additio
 ## 4. Build + run + smoke
 
 - 4.1 Run `npm install` + `npm run build` with zero TS errors
-- 4.2 Boot `node dist/index.js`, curl `http://localhost:3000/healthz` + `http://localhost:3000/`
-- 4.3 Load `http://localhost:3000/healthz` + `http://localhost:3000/` in modern browser (Steve), record result in validation
+- 4.2 Run `npm test` (Vitest): `src/app.test.ts` (/healthz, /, 404) + `src/views/layout.test.ts` (header/main/footer) must pass
+- 4.3 Boot `node dist/index.js`, curl `http://localhost:3000/healthz` + `http://localhost:3000/`
+- 4.4 Load `http://localhost:3000/healthz` + `http://localhost:3000/` in modern browser (Steve), record result in validation

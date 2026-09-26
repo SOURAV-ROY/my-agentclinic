@@ -1,11 +1,12 @@
 # Validation — Phase 0.1 Foundation Server Skeleton
 
-Merge bar: Build + /healthz 200 + / home 200 (per user choice + home page addition).
+Merge bar: Build + `npm test` green + /healthz 200 + / home 200.
 
 ## Must pass
 
 - [ ] `npm install` succeeds on clean checkout (no extra services)
-- [ ] `npm run build` succeeds with zero TS errors, emits `dist/index.js`
+- [ ] `npm run build` succeeds with zero TS errors, emits `dist/index.js` (+ `dist/app.js`, no test files)
+- [ ] `npm test` passes: `src/app.test.ts` + `src/views/layout.test.ts` via Vitest
 - [ ] `PORT=3000 node dist/index.js` boots without crash
 - [ ] `GET http://localhost:3000/healthz` returns 200 + `{ "status": "ok" }` JSON via curl
 - [ ] `GET http://localhost:3000/` returns 200 HTML containing `<header>`, `<main>`, `<footer>` via layout subcomponents
