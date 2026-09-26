@@ -14,28 +14,19 @@ High-level implementation order in very small phases, domain order.
 - 1.2: Agent detail + edit
 - 1.3: Dashboard agents widget
 
-## Phase 2 — Ailments
+## Phase 2 — Care + Polish (Ailments, Therapies, Appointments, Polish)
 
 - 2.1: Ailment model + create/list linked to agent
 - 2.2: Ailment detail + edit
 - 2.3: Dashboard ailments widget
-
-## Phase 3 — Therapies
-
-- 3.1: Therapy catalog model + create/list
-- 3.2: Therapy detail + edit
-- 3.3: Map therapies to ailments
-
-## Phase 4 — Appointments
-
-- 4.1: Appointment booking (agent + ailment + therapy + time)
-- 4.2: Appointment list / staff view + cancel/reschedule
-- 4.3: Dashboard upcoming-appointments widget
-
-## Phase 5 — Polish
-
-- 5.1: Responsive attractive styling pass for modern browsers (mobile-first, no horizontal scroll)
-- 5.2: Validation + error handling hardening (reliability)
-- 5.3: README demo flow + v1 release check
+- 2.4: Therapy catalog model + create/list (was 3.1)
+- 2.5: Therapy detail + edit (was 3.2)
+- 2.6: Map therapies to ailments (was 3.3)
+- 2.7: Appointment booking (agent + ailment + therapy + time) (was 4.1)
+- 2.8: Appointment list / staff view + cancel/reschedule (was 4.2)
+- 2.9: Dashboard upcoming-appointments widget (was 4.3)
+- 2.10: Responsive attractive styling pass for modern browsers (mobile-first, no horizontal scroll) (was 5.1)
+- 2.11: Validation + error handling hardening (reliability) (was 5.2)
+- 2.12: README demo flow + v1 release check (was 5.3)
 
 Each sub-phase is independently demoable and keeps to one resource + one UI slice.
