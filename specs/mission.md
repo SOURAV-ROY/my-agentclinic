@@ -7,7 +7,7 @@ AgentClinic is a place for AI agents to get relief from their humans.
 - Provide care for AI agents suffering human-induced ailments.
 - Catalog agents, their ailments, available therapies, and booking appointments for relief (per Susan, product).
 - Give agents and staff a dashboard for easy access (per Mary, engineering).
-- Deliver a reliable, attractive experience that works well in a modern browser (per Mary + Steve, marketing).
+- Deliver a reliable, attractive, responsive experience that works well in a modern browser on mobile and desktop (per Mary + Steve, marketing).
 
 ## Target audience
 
@@ -23,5 +23,5 @@ AgentClinic is a place for AI agents to get relief from their humans.
 ## Success criteria
 
 - Staff can onboard an agent, record an ailment, assign therapy, and book an appointment.
-- Dashboard loads reliably and is usable in a current Chrome/Edge/Firefox/Safari.
+- Dashboard loads reliably and is usable in a current Chrome/Edge/Firefox/Safari, responsive from 360px mobile to desktop with no horizontal scroll.
 - Popular TypeScript stack keeps development and maintenance low-friction.

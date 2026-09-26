@@ -7,8 +7,10 @@ Roadmap ref: `specs/roadmap.md` Phase 0.1 — Express + TypeScript server skelet
 
 In scope:
 - Node.js + Express + TypeScript server per `specs/tech-stack.md`
+- Testable app: `src/app.ts` (no listen) + thin `src/index.ts` entry
+- Vitest validation: `src/app.test.ts` (routes) + `src/views/layout.test.ts` (subcomponents), run via `npm test`
 - `GET /healthz` returns 200 JSON e.g. `{ "status": "ok" }`
-- `GET /` returns 200 minimal HTML AgentClinic home page (title + relief tagline + link to `/healthz`)
+- `GET /` returns 200 responsive minimal HTML AgentClinic home page (viewport meta + title + relief tagline + link to `/healthz`, usable 360px mobile to desktop)
 - `src/` -> `dist/` build via `tsc` (`npm run build`)
 - `npm start`-able entry (`node dist/index.js`, default port 3000)
 - Strict TypeScript, CommonJS, ES2016 per existing `tsconfig.json`
@@ -23,8 +25,10 @@ Out of scope (deferred):
 
 - Framework: Express.js — popular, reliable, minimal (tech-stack.md recommendation).
 - Language: server-side TypeScript strict, following `src/` conventions.
+- Testing: Vitest + Supertest per `specs/tech-stack.md`; `npm test` is required validation, tests excluded from `tsc` build.
 - Layout: header/main/footer in own files for course clarity + booth demo reuse; `layout.ts` only composes.
-- Transport: JSON over HTTP for `/healthz` + minimal HTML for `/`; full HTML dashboard comes in 0.2.
+- Responsive: mobile-first `public/styles.css` with media queries + viewport meta in layout; fluid header/nav, no horizontal scroll 360px to desktop.
+- Transport: JSON over HTTP for `/healthz` + responsive minimal HTML for `/`; full responsive HTML dashboard comes in 0.2.
 - Port: 3000 default, overridable via `PORT` env for course/booth flexibility.
 
 ## Context
@@ -36,3 +40,4 @@ Guidance from `specs/mission.md`:
 
 Guidance from `specs/tech-stack.md`:
 - Node LTS + Express + TS strict; REST per resource (starting with `/healthz`); `src/` compiled to `dist/`.
+- Vitest (`npm test`) gates every phase for reliability (Mary) + fast student/booth feedback.
