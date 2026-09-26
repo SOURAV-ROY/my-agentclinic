@@ -14,13 +14,17 @@ Server-side TypeScript, per stakeholder requirement for reliable site on a popul
   - Productivity: small core, fast to build CRUD for agents/ailments/therapies/appointments (Susan: features)
   - Browser-friendly: serves clean HTML/CSS for attractive modern-browser UI (Steve: attractive + modern browser)
 
+- **Testing:** Vitest for validation — fast, TypeScript-native unit/integration tests run via `npm test`
+
 ## Alternatives considered
 
 - Next.js full-stack: richer frontend but heavier for v1 reliability goal.
 - NestJS: structured enterprise API but more boilerplate than needed for small phases.
+- Jest: heavier transform setup; Vitest preferred for speed + native ESM/TS support.
 
 ## Conventions
 
-- `src/` holds server code, compiled with `tsc` to `dist/` (`package.json:6-8`, `tsconfig.json:1-12`).
+- `src/` holds server code, compiled with `tsc` to `dist/` (`package.json` scripts, `tsconfig.json:1-12`).
 - Strict TypeScript, CommonJS modules, ES2016 target per current config.
 - REST routes per resource, validated inputs, HTML dashboard + JSON API where useful.
+- Validation via `npm test` (Vitest, `vitest run`); keep tests small and demoable for students/booth devs.
