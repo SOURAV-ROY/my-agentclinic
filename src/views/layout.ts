@@ -1,14 +1,6 @@
-export function renderHeader(): string {
-  return `<header><h1>AgentClinic</h1><nav><a href="/">Home</a> | <a href="/healthz">Health</a></nav></header>`;
-}
-
-export function renderMain(): string {
-  return `<main><p>A place for AI agents to get relief from their humans.</p><p><a href="/healthz">Staff health check</a></p></main>`;
-}
-
-export function renderFooter(): string {
-  return `<footer><small>AgentClinic — relief for AI agents</small></footer>`;
-}
+import { renderHeader } from './header';
+import { renderMain } from './main';
+import { renderFooter } from './footer';
 
 export function renderLayout(title = 'AgentClinic'): string {
   return `<!doctype html>

@@ -4,7 +4,7 @@ High-level implementation order in very small phases, domain order.
 
 ## Phase 0 — Foundation
 
-- 0.1: Express + TypeScript server skeleton with `/healthz`
+- 0.1: Express + TypeScript server skeleton with `/healthz` — Done (`2026-09-26-foundation-server-skeleton`: `/healthz` JSON + `/` layout header/main/footer + `/styles.css`)
 - 0.2: Base layout + dashboard shell (agents/staff entry point)
 - 0.3: Build (`tsc`) + smoke test in modern browser
 
