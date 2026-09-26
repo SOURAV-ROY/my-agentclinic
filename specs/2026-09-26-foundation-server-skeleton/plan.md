@@ -14,11 +14,11 @@ Structure: Setup -> Routes -> Home -> Build (per user choice + home page additio
 - 2.2 Implement `GET /healthz` -> 200 `{ status: ok }` JSON
 - 2.3 Add minimal 404 + error handler for reliability (Mary)
 
-## 3. Minimal home page
+## 3. Minimal home page with main layout
 
-- 3.1 Implement `GET /` -> 200 HTML with AgentClinic title + tagline (place for AI agents to get relief)
-- 3.2 Add minimal inline styling + link to `/healthz` for staff/demo check (Steve: attractive)
-- 3.3 Ensure no extra deps/services; static string response for course/booth simplicity
+- 3.1 Create `src/views/layout.ts` main layout with three subcomponents: `renderHeader()`, `renderMain()`, `renderFooter()` + `renderLayout()` composer
+- 3.2 Create `public/styles.css`, serve via `express.static`, link with `<link rel="stylesheet" href="/styles.css">` in layout (import layout in `src/index.ts`)
+- 3.3 Implement `GET /` -> 200 HTML via layout (AgentClinic title + relief tagline + link to `/healthz`); keep no extra deps/services
 
 ## 4. Build + run + smoke
 

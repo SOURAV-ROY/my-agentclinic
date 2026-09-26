@@ -1,0 +1,5 @@
+body{font-family:system-ui,sans-serif;max-width:640px;margin:40px auto;padding:0 16px;line-height:1.5}
+header{border-bottom:2px solid #eee;margin-bottom:16px}
+nav a{margin-right:8px}
+main{margin:16px 0}
+footer{border-top:2px solid #eee;margin-top:16px;padding-top:8px;color:#555}
