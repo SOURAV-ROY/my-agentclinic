@@ -8,20 +8,21 @@ Roadmap ref: `specs/roadmap.md` Phase 0.1 — Express + TypeScript server skelet
 In scope:
 - Node.js + Express + TypeScript server per `specs/tech-stack.md`
 - `GET /healthz` returns 200 JSON e.g. `{ "status": "ok" }`
+- `GET /` returns 200 minimal HTML AgentClinic home page (title + relief tagline + link to `/healthz`)
 - `src/` -> `dist/` build via `tsc` (`npm run build`)
 - `npm start`-able entry (`node dist/index.js`, default port 3000)
 - Strict TypeScript, CommonJS, ES2016 per existing `tsconfig.json`
 
 Out of scope (deferred):
 - No DB/SQLite, no agents/ailments/therapies/appointments models (Phases 1-4)
-- No dashboard shell/UI polish (Phase 0.2 / 5.1) — JSON only
+- No full dashboard shell/UI polish (Phase 0.2 / 5.1) — home page is static only
 - No auth, billing, or complex validation (mission.md non-goals)
 
 ## Decisions
 
 - Framework: Express.js — popular, reliable, minimal (tech-stack.md recommendation).
 - Language: server-side TypeScript strict, following `src/` conventions.
-- Transport: JSON over HTTP for `/healthz`; HTML dashboard comes in 0.2.
+- Transport: JSON over HTTP for `/healthz` + minimal HTML for `/`; full HTML dashboard comes in 0.2.
 - Port: 3000 default, overridable via `PORT` env for course/booth flexibility.
 
 ## Context
