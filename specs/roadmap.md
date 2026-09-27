@@ -25,7 +25,7 @@ High-level implementation order in very small phases, domain order.
 - 2.7: Appointment booking (agent + ailment + therapy + time) (was 4.1)
 - 2.8: Appointment list / staff view + cancel/reschedule (was 4.2)
 - 2.9: Dashboard upcoming-appointments widget (was 4.3)
-- 2.10: Responsive attractive styling pass for modern browsers (mobile-first, no horizontal scroll) (was 5.1)
+- 2.10: Responsive attractive styling pass for modern browsers (mobile-first, orange/black brand, no horizontal scroll) (was 5.1)
 - 2.11: Validation + error handling hardening (reliability) (was 5.2)
 - 2.12: README demo flow + v1 release check (was 5.3)
 

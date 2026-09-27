@@ -28,6 +28,7 @@ Out of scope (deferred):
 - Testing: Vitest + Supertest per `specs/tech-stack.md`; `npm test` is required validation, tests excluded from `tsc` build.
 - Layout: header/main/footer in own files for course clarity + booth demo reuse; `layout.ts` only composes.
 - Responsive: mobile-first `public/styles.css` with media queries + viewport meta in layout; fluid header/nav, no horizontal scroll 360px to desktop.
+- Brand: orange and black palette (black `#111`, orange `#f97316` accents, `#c2410c` links on light / `#fb923c` on black).
 - Transport: JSON over HTTP for `/healthz` + responsive minimal HTML for `/`; full responsive HTML dashboard comes in 0.2.
 - Port: 3000 default, overridable via `PORT` env for course/booth flexibility.
 

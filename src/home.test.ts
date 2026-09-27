@@ -22,13 +22,15 @@ describe('AgentClinic home + static details', () => {
     expect(health.headers['content-type']).toMatch(/json/);
   });
 
-  it('GET /styles.css serves responsive CSS with layout rules', async () => {
+  it('GET /styles.css serves responsive brand CSS with layout rules', async () => {
     const res = await request(app).get('/styles.css');
     expect(res.status).toBe(200);
     expect(res.text).toContain('font-family');
     expect(res.text).toContain('header');
     expect(res.text).toContain('@media');
     expect(res.text).toContain('box-sizing');
+    expect(res.text).toContain('#111');
+    expect(res.text).toContain('#f97316');
   });
 
   it('unknown route returns JSON error body', async () => {

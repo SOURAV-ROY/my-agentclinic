@@ -17,7 +17,7 @@ Structure: Setup -> Routes -> Home -> Build (per user choice + home page additio
 ## 3. Minimal home page with main layout
 
 - 3.1 Create layout with subcomponents in own files: `src/views/header.ts` (`renderHeader()`), `src/views/main.ts` (`renderMain()`), `src/views/footer.ts` (`renderFooter()`), composed by `src/views/layout.ts` (`renderLayout()` imports the three)
-- 3.2 Create responsive `public/styles.css` (mobile-first + media queries), serve via `express.static`, link with `<link rel="stylesheet" href="/styles.css">` in layout (viewport meta required)
+- 3.2 Create responsive `public/styles.css` (mobile-first + media queries, orange/black brand), serve via `express.static`, link with `<link rel="stylesheet" href="/styles.css">` in layout (viewport meta required)
 - 3.3 Implement `GET /` -> 200 HTML via layout (AgentClinic title + relief tagline + link to `/healthz`); keep no extra deps/services
 
 ## 4. Build + run + smoke
