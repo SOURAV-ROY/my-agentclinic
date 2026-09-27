@@ -6,6 +6,7 @@ Structure: Shell -> Agents -> Ailments -> Therapies -> Booking -> Polish (roadma
 
 - 1.1 Extend layout nav with Dashboard entry; add `GET /dashboard` shell (agents/staff entry point, responsive + brand)
 - 1.2 Add dashboard view + route tests (Vitest + Supertest)
+- 1.3 SQLite persistence in `src/models.ts` (Node `node:sqlite`): agents/ailments/therapies/appointments tables, file DB `data/agentclinic.db` (`AGENTCLINIC_DB` override, `/data` gitignored), `:memory:` under Vitest; seed sample data on first boot
 
 ## 2. Agents (1.1–1.3)
 

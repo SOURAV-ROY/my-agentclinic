@@ -14,7 +14,6 @@ In scope — everything needed for the mission success criteria:
 - Phase 2 Polish: 2.10 responsive brand styling pass, 2.11 validation + error hardening, 2.12 README demo flow + v1 check (incl. 0.3 build + Vitest + smoke)
 
 Out of scope (deferred past MVP):
-- No SQLite persistence yet (in-memory store; zero extra services for course/booth); SQLite adoption is a later tech-stack decision
 - No auth, billing, or complex validation (mission.md non-goals)
 - No native/mobile apps; responsive modern-browser web only
 
@@ -22,7 +21,9 @@ Out of scope (deferred past MVP):
 
 - Framework: Express.js + server-side TypeScript strict, per `specs/tech-stack.md`.
 - UI: server-rendered views extending `src/views/layout.ts` (header/main/footer) + `public/styles.css` (mobile-first, orange `#f97316`/`#c2410c`/`#fb923c` on black `#111`); viewport meta required.
-- Data: in-memory models first (Agent, Ailment, Therapy, Appointment with ids + timestamps); REST + HTML dashboard per resource, following the testable `src/app.ts` (no listen) + thin `src/index.ts` pattern.
+- Data: SQLite persistence per `specs/tech-stack.md` — `data/agentclinic.db` file DB (override via `AGENTCLINIC_DB`), schema + seed in `src/models.ts`; `:memory:` under Vitest so tests never touch the dev file. Agents, Ailments, Therapies, Appointments with string ids + timestamps.
+- Booking rules (locked): appointment time must parse via `Date.parse`; ailmentId, when given, must exist AND belong to the booked agent; therapyId, when given, must exist; only `scheduled` appointments can be cancelled/rescheduled (otherwise 400).
+- Content negotiation: JSON requests (`Accept`/`Content-Type: application/json`) get `201`/`200` JSON; browser form posts get `302` redirects; validation failures are `400 { error }`, unknown ids/routes are `404 { error }`.
 - Testing: Vitest + Supertest gate every slice (`npm test`); tests excluded from `tsc` build; keep slices demoable for students/booth devs.
 
 ## Context

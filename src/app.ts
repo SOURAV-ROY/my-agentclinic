@@ -11,7 +11,15 @@ import {
   findAilment,
   findTherapy,
   findAppointment,
+  insertAgent,
+  insertAilment,
+  insertTherapy,
+  insertAppointment,
   nextId,
+  persistAgent,
+  persistAilment,
+  persistTherapy,
+  persistAppointment,
   store,
 } from './models';
 import type { Agent, Ailment, Appointment, Therapy } from './models';
@@ -85,7 +93,7 @@ app.post('/agents', (req: Request, res: Response) => {
     model: model || undefined,
     createdAt: new Date().toISOString(),
   };
-  store.agents.push(agent);
+  insertAgent(agent);
   if (wantsJson(req)) {
     res.status(201).json(agent);
     return;
@@ -117,6 +125,7 @@ app.post('/agents/:id/edit', (req: Request, res: Response) => {
   }
   agent.name = name;
   agent.model = model || undefined;
+  persistAgent(agent);
   if (wantsJson(req)) {
     res.status(200).json(agent);
     return;
@@ -149,7 +158,7 @@ app.post('/ailments', (req: Request, res: Response) => {
     notes: notes || undefined,
     createdAt: new Date().toISOString(),
   };
-  store.ailments.push(ailment);
+  insertAilment(ailment);
   if (wantsJson(req)) {
     res.status(201).json(ailment);
     return;
@@ -180,6 +189,7 @@ app.post('/ailments/:id/edit', (req: Request, res: Response) => {
   }
   ailment.name = name;
   ailment.notes = notes || undefined;
+  persistAilment(ailment);
   if (wantsJson(req)) {
     res.status(200).json(ailment);
     return;
@@ -199,6 +209,7 @@ app.post('/ailments/:id/assign', (req: Request, res: Response) => {
     return;
   }
   ailment.therapyId = therapyId;
+  persistAilment(ailment);
   if (wantsJson(req)) {
     res.status(200).json(ailment);
     return;
@@ -225,7 +236,7 @@ app.post('/therapies', (req: Request, res: Response) => {
     description: description || undefined,
     createdAt: new Date().toISOString(),
   };
-  store.therapies.push(therapy);
+  insertTherapy(therapy);
   if (wantsJson(req)) {
     res.status(201).json(therapy);
     return;
@@ -256,6 +267,7 @@ app.post('/therapies/:id/edit', (req: Request, res: Response) => {
   }
   therapy.name = name;
   therapy.description = description || undefined;
+  persistTherapy(therapy);
   if (wantsJson(req)) {
     res.status(200).json(therapy);
     return;
@@ -306,7 +318,7 @@ app.post('/appointments', (req: Request, res: Response) => {
     status: 'scheduled',
     createdAt: new Date().toISOString(),
   };
-  store.appointments.push(appointment);
+  insertAppointment(appointment);
   if (wantsJson(req)) {
     res.status(201).json(appointment);
     return;
@@ -325,6 +337,7 @@ app.post('/appointments/:id/cancel', (req: Request, res: Response) => {
     return;
   }
   appointment.status = 'cancelled';
+  persistAppointment(appointment);
   if (wantsJson(req)) {
     res.status(200).json(appointment);
     return;
@@ -348,6 +361,7 @@ app.post('/appointments/:id/reschedule', (req: Request, res: Response) => {
     return;
   }
   appointment.time = time;
+  persistAppointment(appointment);
   if (wantsJson(req)) {
     res.status(200).json(appointment);
     return;
