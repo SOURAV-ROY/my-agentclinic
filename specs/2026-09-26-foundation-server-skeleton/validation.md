@@ -20,4 +20,4 @@ Merge bar: Build + `npm test` green + /healthz 200 + / home 200.
 - [ ] Scope matches `requirements.md` (no DB/full-dashboard creep)
 - [ ] Plan groups 1-4 complete and demoable in <60s for students/booth devs (mission.md audience)
 - [ ] No strict TS violations, no secrets committed
-- [ ] Branch `2026-09-26-foundation-server-skeleton` green on above, then merge to `sourav`
+- [ ] Branch `2026-09-26-foundation-server-skeleton` green on above (merged to `sourav`)

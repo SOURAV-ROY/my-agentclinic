@@ -13,12 +13,12 @@ In scope:
 - `GET /` returns 200 responsive minimal HTML AgentClinic home page (viewport meta + title + relief tagline + link to `/healthz`, usable 360px mobile to desktop)
 - `src/` -> `dist/` build via `tsc` (`npm run build`)
 - `npm start`-able entry (`node dist/index.js`, default port 3000)
-- Strict TypeScript, CommonJS, ES2016 per existing `tsconfig.json`
+- Strict TypeScript, CommonJS, ES2023 per existing `tsconfig.json`
 - Layout split: `src/views/header.ts`, `src/views/main.ts`, `src/views/footer.ts` as own files, composed by `src/views/layout.ts`
 
 Out of scope (deferred):
-- No DB/SQLite, no agents/ailments/therapies/appointments models (Phases 1-4)
-- No full dashboard shell/UI polish (Phase 0.2 / 5.1) — home page is static only
+- No DB yet at this phase (SQLite lands with MVP), no agents/ailments/therapies/appointments models (now Phases 1–2)
+- No full dashboard shell/UI polish (Phase 0.2 / 2.10) — home page is static only
 - No auth, billing, or complex validation (mission.md non-goals)
 
 ## Decisions

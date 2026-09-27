@@ -4,10 +4,12 @@ import { renderFooter } from './footer';
 
 export type LayoutProps = {
   title?: string;
+  body?: string;
 };
 
 export function renderLayout(props: LayoutProps = {}): string {
-  const { title = 'AgentClinic' } = props;
+  const { title = 'AgentClinic', body } = props;
+  const main = body ?? renderMain();
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +20,7 @@ export function renderLayout(props: LayoutProps = {}): string {
 </head>
 <body>
 ${renderHeader()}
-${renderMain()}
+${main}
 ${renderFooter()}
 </body>
 </html>`;

@@ -16,6 +16,7 @@ Server-side TypeScript, per stakeholder requirement for reliable site on a popul
   - Productivity: small core, fast to build CRUD for agents/ailments/therapies/appointments (Susan: features)
   - Browser-friendly: serves clean HTML/CSS for attractive modern-browser UI (Steve: attractive + modern browser)
 
+- **Data:** SQLite file DB (`data/agentclinic.db`, override via `AGENTCLINIC_DB`) — zero services, single file for course/booth use; `:memory:` under Vitest
 - **Testing:** Vitest for validation — fast, TypeScript-native unit/integration tests run via `npm test`
 
 ## Alternatives considered
@@ -27,8 +28,9 @@ Server-side TypeScript, per stakeholder requirement for reliable site on a popul
 ## Conventions
 
 - `src/` holds server code, compiled with `tsc` to `dist/` (`package.json` scripts, `tsconfig.json:1-12`).
-- Strict TypeScript, CommonJS modules, ES2016 target per current config.
+- Strict TypeScript, CommonJS modules, ES2023 target per current config.
 - REST routes per resource, validated inputs, HTML dashboard + JSON API where useful.
+- SQLite persistence in `src/models.ts` (schema + seed + file DB); tests use `:memory:` and never touch the dev file.
 - Responsive web UI: viewport meta in layout, mobile-first `public/styles.css` with media queries, flexible header/main/footer; verify narrow + wide viewports.
 - Brand UI: orange and black palette only for chrome/accents (black `#111`, orange `#f97316`/`#c2410c`/`#fb923c`); body text stays near-black on white for contrast.
 - Validation via `npm test` (Vitest, `vitest run`); keep tests small and demoable for students/booth devs.
