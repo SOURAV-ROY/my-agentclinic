@@ -1,6 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
+import { applyMigrations, defaultMigrationsDir } from './migrate';
 
 export type Agent = {
   id: string;
@@ -53,37 +54,7 @@ if (!dbPath.includes(':memory:')) {
 
 const db = new DatabaseSync(dbPath);
 
-db.exec(`
-CREATE TABLE IF NOT EXISTS agents (
-  id TEXT PRIMARY KEY,
-  name TEXT NOT NULL,
-  model TEXT,
-  createdAt TEXT NOT NULL
-);
-CREATE TABLE IF NOT EXISTS ailments (
-  id TEXT PRIMARY KEY,
-  agentId TEXT NOT NULL,
-  name TEXT NOT NULL,
-  notes TEXT,
-  therapyId TEXT,
-  createdAt TEXT NOT NULL
-);
-CREATE TABLE IF NOT EXISTS therapies (
-  id TEXT PRIMARY KEY,
-  name TEXT NOT NULL,
-  description TEXT,
-  createdAt TEXT NOT NULL
-);
-CREATE TABLE IF NOT EXISTS appointments (
-  id TEXT PRIMARY KEY,
-  agentId TEXT NOT NULL,
-  ailmentId TEXT,
-  therapyId TEXT,
-  time TEXT NOT NULL,
-  status TEXT NOT NULL,
-  createdAt TEXT NOT NULL
-);
-`);
+applyMigrations(db, defaultMigrationsDir());
 
 type Row = Record<string, string | number | bigint | Uint8Array | null>;
 
