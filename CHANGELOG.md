@@ -2,6 +2,11 @@
 
 ## 2026-09-27
 
+- Update mission, roadmap, and tech stack specifications to reflect the new constitution structure. Add delivery scope details, clarify implementation phases, and outline ORM and migration strategies. Introduce validation and requirements documents for the constitution refresh, ensuring alignment with stakeholder feedback and project goals. (b42d17b)
+- Merge pull request #4 from SOURAV-ROY/mvp (8281768)
+- Implement SQLite persistence for agents, ailments, therapies, and appointments, enhancing data management and retrieval. Update models and application logic to support database operations, including insertion and persistence functions. Modify .gitignore to exclude the database file and ensure proper directory structure for data storage. (3e3cfe1)
+- Seed sample data for agents, ailments, therapies, and appointments to enhance initial dashboard view. Update dashboard tests to verify seeded data display. Refactor index to call seedStore on application startup. (ceb7c71)
+- Implement MVP features including dashboard shell, CRUD operations for agents, ailments, therapies, and appointments with booking, canceling, and rescheduling capabilities. Add comprehensive MVP specifications and validation criteria. Enhance layout rendering for better maintainability and update README for demo instructions. (8062efa)
 - Persist MVP store in SQLite via Node node:sqlite (data/agentclinic.db, AGENTCLINIC_DB override, :memory: under Vitest); lock booking rules into specs; fix stale ES2023/phase refs (uncommitted: src/models.ts, src/app.ts, specs/)
 - Seed sample agents, ailments, therapies, and appointments so every section shows data on first view (uncommitted: src/models.ts, src/index.ts)
 - Add MVP specs (specs/mvp/requirements.md, plan.md, validation.md) + Vitest suites per resource + README demo flow (uncommitted)
