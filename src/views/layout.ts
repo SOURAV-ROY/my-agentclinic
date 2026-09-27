@@ -2,7 +2,12 @@ import { renderHeader } from './header';
 import { renderMain } from './main';
 import { renderFooter } from './footer';
 
-export function renderLayout(title = 'AgentClinic'): string {
+export type LayoutProps = {
+  title?: string;
+};
+
+export function renderLayout(props: LayoutProps = {}): string {
+  const { title = 'AgentClinic' } = props;
   return `<!doctype html>
 <html lang="en">
 <head>
