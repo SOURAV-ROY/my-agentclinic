@@ -3,6 +3,7 @@
 ## 2026-09-27
 
 - Implement MVP on branch mvp: dashboard shell, agents/ailments/therapies/appointments CRUD + booking with cancel/reschedule on in-memory store (uncommitted: src/, specs/mvp/)
+- Seed sample agents, ailments, therapies, and appointments so every section shows data on first view (uncommitted: src/models.ts, src/index.ts)
 - Add MVP specs (specs/mvp/requirements.md, plan.md, validation.md) + Vitest suites per resource + README demo flow (uncommitted)
 - Refactor layout rendering by extracting LayoutProps type for improved clarity and flexibility. Update renderLayout function to accept props, enhancing code maintainability. (ee00816)
 - Enhance CSS styles for improved branding and responsiveness. Update header, footer, and navigation styles to incorporate an orange and black color scheme. Revise specifications and tests to reflect these branding changes and ensure mobile-first design compliance. (018e239)

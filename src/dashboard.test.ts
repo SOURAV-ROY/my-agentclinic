@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import request from 'supertest';
 import app from './app';
-import { resetStore } from './models';
+import { resetStore, seedStore } from './models';
 
 beforeEach(() => resetStore());
 
@@ -30,5 +30,16 @@ describe('dashboard shell', () => {
     expect(res.text).toContain('Agents (1)');
     expect(res.text).toContain('Dash-1');
     expect(res.text).toContain('Upcoming appointments (1)');
+  });
+
+  it('dashboard shows seeded sample data', async () => {
+    seedStore();
+    const res = await request(app).get('/dashboard');
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('Agents (3)');
+    expect(res.text).toContain('Helper-1');
+    expect(res.text).toContain('Prompt fatigue');
+    expect(res.text).toContain('Quiet room');
+    expect(res.text).toContain('Upcoming appointments (2)');
   });
 });
