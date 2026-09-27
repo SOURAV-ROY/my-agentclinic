@@ -11,4 +11,7 @@ yarn-error.log*
 .vscode/*
 .idea/*
 /dist
-/data
+/data/*.db
+/data/*.db-journal
+/data/*.sqlite
+/data/*.sqlite-journal
